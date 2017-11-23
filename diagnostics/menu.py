@@ -11,10 +11,11 @@
 import os
 from diagnostics.output import log, Colours
 import diagnostics.wifi as wifi
-
+import diagnostics.audio as audio
 
 TESTS = [
-    wifi
+    wifi,
+    audio
 ]
 
 def show_main_menu():
