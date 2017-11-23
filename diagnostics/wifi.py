@@ -13,23 +13,12 @@ import re
 import subprocess
 
 from diagnostics.output import log, Colours
-
+from diagnostics.cmd import run_cmd
 
 NAME = 'WiFi'
 
 INTERNET_IP = '8.8.8.8'
 INTERNET_HOSTNAME = 'repo.kano.me'
-
-
-def run_cmd(cmd):
-    proc = subprocess.Popen(
-        cmd.split(' '),
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-    )
-    stdout, stderr = proc.communicate()
-
-    return stdout, stderr
 
 
 def get_ip_address():
