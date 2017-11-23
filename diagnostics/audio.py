@@ -20,7 +20,8 @@ def run_speaker_test(where):
     log('Testing Speaker: {}'.format(where))
     cmd = "speaker-test -r 48000 -f 600 -t sine -s 1"
     run_cmd(cmd)
-    raw_input("What did you hear? ")
+    x = raw_input("What did you hear? ")
+    log(x, only_file=True)
 
 
 def get_audio_routing():
