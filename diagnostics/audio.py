@@ -25,8 +25,17 @@ def run_speaker_test(where):
 
 
 def get_audio_routing():
+
+    # first log alsa config to log file only
+    cmd = "amixer contents"
+    stdout, stderr = run_cmd(cmd)
+
+    log(stdout, only_file=True)
+
+    # get specific settings
     cmd = "amixer -c 0 cget name='PCM Playback Route'"
     stdout, stderr = run_cmd(cmd)
+
     try:
         lines = stdout.split('\n')
         val = lines[2].split('=')[1]
