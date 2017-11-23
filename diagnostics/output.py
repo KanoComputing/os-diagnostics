@@ -22,10 +22,11 @@ class Colours:
     UNDERLINE = '\033[4m'
 
 
-def log(msg, colour=Colours.BLUE, newline=True):
-    sys.stdout.write("{}{}{}".format(colour, msg, Colours.ENDC))
+def log(msg, colour=Colours.BLUE, newline=True, only_file=False):
+    if not only_file:
+        sys.stdout.write("{}{}{}".format(colour, msg, Colours.ENDC))
 
-    if newline:
-        sys.stdout.write("\n")
+        if newline:
+            sys.stdout.write("\n")
 
-    sys.stdout.flush()
+        sys.stdout.flush()
