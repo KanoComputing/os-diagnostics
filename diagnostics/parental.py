@@ -1,18 +1,17 @@
 #
 # wifi.py
 #
-# Copyright (C) 2017 Kano Computing Ltd.
+# Copyright (C) 2017-2018 Kano Computing Ltd.
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPLv2
 #
-# WiFi diagnostics functions
+# Parental reset functions
 #
 
 
 import os
-import subprocess
 
 from diagnostics.output import log, Colours
-from diagnostics.cmd import run_cmd, run_root_cmd
+from diagnostics.cmd import run_root_cmd
 
 
 NAME = 'Reset Parental Password'
