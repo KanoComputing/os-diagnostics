@@ -7,6 +7,7 @@
 # run a command
 #
 
+import os
 import subprocess
 import shlex
 
@@ -19,3 +20,14 @@ def run_cmd(cmd):
     )
     stdout, stderr = proc.communicate()
     return stdout, stderr
+
+
+def run_root_cmd(cmd, passwd='kano'):
+    with open(os.devnull, 'w') as null_f:
+        proc = subprocess.Popen(
+            ['sudo', '-S', '-k'] + shlex.split(cmd),
+            stdin=subprocess.PIPE,
+            stdout=null_f,
+            stderr=null_f
+        )
+        proc.communicate('{}\n'.format(passwd))

@@ -9,13 +9,18 @@
 
 
 import os
+import sys
+
 from diagnostics.output import log, Colours
+
 import diagnostics.wifi as wifi
 import diagnostics.audio as audio
+import diagnostics.parental as parental
 
 TESTS = [
     wifi,
-    audio
+    audio,
+    parental
 ]
 
 def show_main_menu():

@@ -14,6 +14,7 @@ import subprocess
 
 from diagnostics.output import log, Colours
 from diagnostics.cmd import run_cmd
+from diagnostics.parental import ParentalSetting, get_parental_setting
 
 NAME = 'WiFi'
 
@@ -105,10 +106,6 @@ def test_connection():
     return gateway_connected, internet_connected, nameserver_connected
 
 
-def get_parental_setting():
-    return os.path.isfile('/etc/kano-parental-lock')
-
-
 def run():
     '''
     Main test entry point
@@ -143,7 +140,7 @@ def run():
     log(get_dns_settings(), colour=Colours.GREEN)
 
     log('    Parental setting: ', newline=False)
-    if get_parental_setting():
+    if get_parental_setting() == ParentalSetting.ENABLED:
         log('Enabled', colour=Colours.GREEN)
     else:
         log('Disabled', colour=Colours.GREEN)
